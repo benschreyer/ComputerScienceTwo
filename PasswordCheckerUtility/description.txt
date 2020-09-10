@@ -1,0 +1,2 @@
+Junit tests and implementation for a utility class to check for valid passwords,
+also includes definitions for new exceptions

@@ -1,0 +1,2 @@
+Describes a bid for installation of an airconditioner aswell as a collection of bids
+Interfaces only
