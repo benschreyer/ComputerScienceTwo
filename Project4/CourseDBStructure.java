@@ -17,11 +17,17 @@ public class CourseDBStructure implements CourseDBStructureInterface
 	private int entries;
 	private String name;
 	public LinkedList<CourseDBElement>[] hashTable;
+	
 	private int hash(String CRN)
 	{
 		return Integer.parseInt(CRN) % (hashTable.length);
 	}
-	
+	/**
+	   * Constructor with name and table size
+	   * @param Name
+	   * @param Table size
+	   * @return New object
+	   */
 	@SuppressWarnings("unchecked") 
 	CourseDBStructure(String n,int hashTableSize)
 	{
@@ -34,17 +40,27 @@ public class CourseDBStructure implements CourseDBStructureInterface
 			hashTable[i] = null;
 		}
 	}
+	/**
+	   * Constructor with name 
+	   * @param Name
+	   * @return New object
+	   */
 	@SuppressWarnings("unchecked") 
 	CourseDBStructure(String n)
 	{
 		entries = 0;
 		name = n;
-		hashTable = new LinkedList[25];
-		for(int i = 0;i < 25;i++)
+		hashTable = new LinkedList[499];
+		for(int i = 0;i < 499;i++)
 		{
 			hashTable[i] = null;
 		}
 	}
+	/**
+	   * Constructor with table size
+	   * @param Table size
+	   * @return New object
+	   */
 	@SuppressWarnings("unchecked") 
 	CourseDBStructure(int n)
 	{
@@ -56,7 +72,10 @@ public class CourseDBStructure implements CourseDBStructureInterface
 			hashTable[i] = null;
 		}
 	}
-	
+	/**
+	   * Add an item to the database
+	   * @param item to add
+	   */
 	@Override
 	public void add(CourseDBElement element) 
 	{
@@ -87,7 +106,11 @@ public class CourseDBStructure implements CourseDBStructureInterface
 		}
 
 	}
-
+	/**
+	   * Get a course object by CRN
+	   * @param CRN
+	   * @return Object if found, null if the object is not contained
+	   */
 	@Override
 	public CourseDBElement get(int crn) throws IOException 
 	{
@@ -103,13 +126,19 @@ public class CourseDBStructure implements CourseDBStructureInterface
 		}
 		return null;
 	}
-
+	/**
+	   * Get table size
+	   * @return Hash table size
+	   */
 	@Override
 	public int getTableSize() 
 	{
 		return hashTable.length;
 	}
-
+	/**
+	   * Get array of courses contained in structure
+	   * @return Array containing all entries
+	   */
 	public CourseDBElement[] toArray()
 	{
 		CourseDBElement[] ret = new CourseDBElement[entries];
