@@ -88,7 +88,7 @@ public class CourseDBManagerTest {
 					"CMSC110 21560 3 SC450 Behzad Maghami");
 			inFile.close();
 			dataMgr.readFile(inputFile);
-			File extFile = new File("courses.txt");
+			File extFile = new File("Test1.txt");
 			dataMgr.readFile(extFile);
 			for(String s : dataMgr.showAll())
 			{

@@ -88,7 +88,7 @@ public class CourseDBManager implements CourseDBManagerInterface
 
 	}
 	/**
-	   * Get all entries as an ArrayList of string representations
+	   * Get all entries as an ArrayList of string representations, sorted by CRN
 	   * @return 
 	   */
 	@Override
@@ -100,7 +100,6 @@ public class CourseDBManager implements CourseDBManagerInterface
 			String line = "\nCourse:"+e.getCourseID() + " CRN:" + Integer.toString(e.getCRN()) + " Credits:" + e.getCredits()+ " Instructor:" + e.getInstructorName() + " Room:" + e.getRoomNumber();
 			ret.add(line);
 		}
-		Collections.sort(ret);
 		return ret;
 	}
 

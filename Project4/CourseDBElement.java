@@ -54,6 +54,7 @@ public class CourseDBElement implements Comparable
 	   * @param Other course to compare to
 	   * @return Signed int, 0 for equal, -1 for less than
 	   */
+
 	@Override
 	public int compareTo(CourseDBElement element) 
 	{

@@ -8,15 +8,26 @@
 */
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class CourseDBStructure implements CourseDBStructureInterface 
 {
-
+	
 	private int entries;
 	private String name;
 	public LinkedList<CourseDBElement>[] hashTable;
+	
+	
+	private class SortByCRN implements Comparator<CourseDBElement>
+	{
+		public int compare(CourseDBElement element, CourseDBElement element2)
+		{
+			return element.getCRN()-element2.getCRN();
+		}
+	}
 	
 	private int hash(String CRN)
 	{
@@ -136,7 +147,7 @@ public class CourseDBStructure implements CourseDBStructureInterface
 		return hashTable.length;
 	}
 	/**
-	   * Get array of courses contained in structure
+	   * Get array of courses contained in structure sorted by CRN
 	   * @return Array containing all entries
 	   */
 	public CourseDBElement[] toArray()
@@ -154,7 +165,9 @@ public class CourseDBStructure implements CourseDBStructureInterface
 				}
 			}
 		}
+		Arrays.sort(ret, new SortByCRN());
 		return ret;
 	}
+
 
 }
